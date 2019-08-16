@@ -331,7 +331,7 @@ class FullyConnectedNet(object):
                 dh = dropout_backward(dh, dropout_cache)
             dh = relu_backward(dh, relu_cache)
             if self.normalization == 'batchnorm':
-                dh, dgamma, dbeta = batchnorm_backward(dh, norm_cache)
+                dh, dgamma, dbeta = batchnorm_backward_alt(dh, norm_cache)
             elif self.normalization == 'layernorm':
                 dh, dgamma, dbeta = layernorm_backward(dh, norm_cache)
                 
